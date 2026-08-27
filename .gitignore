@@ -1,0 +1,20 @@
+# Python temporary files and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+venv/
+.venv/
+
+# Ignore log outputs (keep repo clean)
+reports/*.log
+
+# IDE settings
+.vscode/
+.idea/
+
+
+test_downloads/
+
+reports/
