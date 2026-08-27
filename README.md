@@ -18,7 +18,7 @@ A Python command-line automation tool designed to structure messy directories by
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/SABulfon/file-organizer-automation.git](https://github.com/YOUR_USERNAME/file-organizer-automation.git)
+   git clone [https://github.com/SABulfon/file-organizer-automation.git](https://github.com/SABulfon/file-organizer-automation.git)
    cd file-organizer-automation
 
 1. Run with the default directory (test_downloads):
