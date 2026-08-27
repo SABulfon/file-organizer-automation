@@ -3,6 +3,7 @@ import os
 import shutil
 import logging
 from pathlib import Path
+import argparse
 
 # Mapping file extensions to destination folder names
 EXTENSION_MAP = {
@@ -82,10 +83,25 @@ def organize_directory(directory):
                 logging.error(f"Failed to move '{item.name}' to '{destination_path}': {e}")
 
 def main():
-    # Configuración de los logs
+
+    parser = argparse.ArgumentParser(
+        description="Smart directory organizer that dynamically categorizes files by extension."
+    )
+
+    parser.add_argument(
+        "path",
+        nargs="?",
+        default="test_downloads",
+        help="Path to the directory you want to organize (default: 'test_downloads')"
+    )
+
+    args = parser.parse_args()
+    target_path = Path(args.path)
+
+# Create reports directory before initializing logging
     log_dir = Path("reports")
     log_dir.mkdir(parents=True, exist_ok=True)
-    
+
     logging.basicConfig(
         filename=log_dir / "organizer.log",
         level=logging.INFO,
@@ -93,9 +109,14 @@ def main():
         datefmt="%Y-%m-%d %H:%M:%S"
     )
 
-    print("[+] Starting directory organization...")
-    organize_directory("test_downloads")
-    print("[✔] Organization complete. Check 'reports/organizer.log' for details.")
+    if not target_path.exists():
+        print(f"[X] Error: Target directory '{target_path}' does not exist.")
+        logging.error(f"Target path does not exist: {target_path}")
+        return
+
+    print(f"[+] Organizing directory: {target_path.resolve()}")
+    organize_directory(target_path)
+    print("[✔] Organization completed successfully. Check 'reports/organizer.log' for details.")
 
 if __name__ == '__main__':
     main()
