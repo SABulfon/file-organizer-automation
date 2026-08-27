@@ -14,11 +14,28 @@ A Python command-line automation tool designed to structure messy directories by
 
 ---
 
-## Command Line Interface (CLI)
+## Quick Start
 
-The script utilizes Python's native `argparse` module to handle command-line options and parameters efficiently.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/SABulfon/file-organizer-automation.git](https://github.com/YOUR_USERNAME/file-organizer-automation.git)
+   cd file-organizer-automation
 
-### Syntax
+1. Run with the default directory (test_downloads):
+    ```bash
+    python organize.py
+
+2. Run with a custom directory path:
+    ```bash
+    # Windows
+    python organize.py "C:\Users\YourUsername\Downloads"
+
+    # Linux / macOS
+    python organize.py "/Users/YourUsername/Downloads"
+
+### Display CLI Help
+
+Run `--help` to inspect arguments and description directly in your terminal:
 
 ```bash
-python organize.py [-h] [path]
+python organize.py --help
